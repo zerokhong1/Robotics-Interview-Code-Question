@@ -30,6 +30,7 @@ Khi nào dùng gì:
 - Tuple: Khi data cố định (coordinates, RGB values, return multiple values)
 """
 
+```python
 # List - mutable
 my_list = [1, 2, 3]
 my_list.append(4)  # OK
@@ -47,6 +48,7 @@ def get_robot_position():
 
 position = get_robot_position()
 x, y, theta = position  # Unpacking
+```
 
 Q1.2: Giải thích List Comprehension và khi nào nên dùng?
 python"""
@@ -54,7 +56,7 @@ ANSWER:
 List comprehension là cách viết ngắn gọn để tạo list mới từ iterable.
 Syntax: [expression for item in iterable if condition]
 """
-
+```
 # Traditional way
 squares = []
 for i in range(10):
@@ -75,12 +77,14 @@ grid = [[i + j for j in range(3)] for i in range(3)]
 # [[0, 1, 2], [1, 2, 3], [2, 3, 4]]
 
 # WHEN NOT TO USE: Complex logic - use regular for loop for readability
+```
 
 Q1.3: Implement một Class cơ bản với các magic methods
 python"""
 QUESTION: Implement một class Point2D với các operations cơ bản
 """
 
+```
 import math
 
 class Point2D:
@@ -135,12 +139,14 @@ print(p1)           # (3, 4)
 print(p1 + p2)      # (4, 6)
 print(abs(p1))      # 5.0 (3-4-5 triangle)
 print(p1.distance_to(p2))  # 2.828...
+```
 
 Q1.4: Decorators là gì? Viết một timing decorator
 python"""
 QUESTION: Viết decorator để measure execution time của function
 """
 
+```
 import time
 from functools import wraps
 
@@ -189,6 +195,7 @@ def greet(name):
     return f"Hello, {name}!"
 
 print(greet("Robot"))  # ['Hello, Robot!', 'Hello, Robot!', 'Hello, Robot!']
+```
 
 2. Data Structures & Algorithms
 Q2.1: Implement Binary Search
@@ -197,7 +204,7 @@ QUESTION: Implement binary search iteratively and recursively
 Time Complexity: O(log n)
 Space Complexity: O(1) iterative, O(log n) recursive
 """
-
+```
 def binary_search_iterative(arr, target):
     """
     Find target in sorted array.
@@ -264,6 +271,7 @@ def find_closest_timestamp(timestamps, query_time):
             return left - 1
     
     return left
+```
 
 Q2.2: Implement BFS và DFS
 python"""
@@ -271,6 +279,7 @@ QUESTION: Implement BFS and DFS for graph traversal
 Application in robotics: Path planning, exploring environment
 """
 
+```
 from collections import deque
 
 class Graph:
@@ -365,13 +374,14 @@ g.add_edge(2, 5)
 
 print("BFS:", g.bfs(0))  # [0, 1, 2, 3, 4, 5] - level order
 print("DFS:", g.dfs(0))  # [0, 1, 3, 4, 2, 5] - deep first
+```
 
 Q2.3: Implement A* Path Planning
 python"""
 QUESTION: Implement A* algorithm for path planning
 This is VERY IMPORTANT for robotics interviews!
 """
-
+```
 import heapq
 from typing import List, Tuple, Optional
 
@@ -493,13 +503,14 @@ S * . . .
 . # . . *
 . . . . G
 """
+```
 
 3. NumPy & Linear Algebra
 Q3.1: Matrix Operations cơ bản
 python"""
 QUESTION: Thực hiện các phép toán matrix cơ bản với NumPy
 """
-
+```
 import numpy as np
 
 # ============================================
@@ -588,7 +599,7 @@ python"""
 QUESTION: Implement SE(3) transformation matrix operations
 This is ESSENTIAL for robotics!
 """
-
+```
 import numpy as np
 
 def rotation_matrix_x(theta):
@@ -723,13 +734,14 @@ print(f"Point in Base frame: {point_base}")
 T_link2_base = inverse_transformation(T_base_link2)
 recovered = transform_point(T_link2_base, point_base)
 print(f"Recovered point: {recovered}")  # Should match point_link2
+```
 
 Q3.3: Implement Quaternion Operations
 python"""
 QUESTION: Implement quaternion operations for rotation representation
 Quaternions avoid gimbal lock and are efficient for rotation composition
 """
-
+```
 import numpy as np
 
 class Quaternion:
@@ -862,6 +874,7 @@ print(f"Rotated vector: {v_rotated}")  # Should be [0, 1, 0]
 # Convert to rotation matrix
 R = q1.to_rotation_matrix()
 print(f"Rotation matrix:\n{R}")
+```
 
 4. Computer Vision Coding
 Q4.1: Implement Camera Projection
